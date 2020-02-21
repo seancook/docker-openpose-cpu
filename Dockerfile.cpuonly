@@ -19,6 +19,7 @@ RUN git checkout caa794cf81bed53b9e114299b715a6d972097b5b
 
 WORKDIR scripts/ubuntu
 
+# Remove sudo from commands and skip installing easy_install and pip
 RUN sed -i 's/\<sudo -H\>//g' install_deps.sh; \
    sed -i 's/\<sudo\>//g' install_deps.sh; \
    sed -i 's/\<easy_install pip\>//g' install_deps.sh; \
@@ -34,7 +35,9 @@ RUN cmake -DGPU_MODE:String=CPU_ONLY \
           -DUSE_MKL:Bool=OFF \
           ..
 
-RUN make -j # yolo
+# Limit jobs to 4 to avoid running out of memory
+# https://stackoverflow.com/a/35011967/1128216
+RUN make -j 4 # yolo
 
 RUN apt-get remove wget unzip cmake git build-essential -y && apt-get autoremove -y
 
