@@ -36,3 +36,7 @@ $ docker run seancook/openpose-cpu:latest
 # if you have image file(s) in the current directory and you would like to process them
 $ docker run -v`pwd`:/data -it seancook/openpose-cpu -display 0 -image_dir /data -write_images /data
 ```
+
+## Troubleshooting
+
+If you experience issues while running the the `make` command, please lower the number of jobs to something that makes sense for your machine. See [discussion here](https://github.com/seancook/docker-openpose-cpu/pull/2).
