@@ -39,4 +39,4 @@ $ docker run -v`pwd`:/data -it seancook/openpose-cpu -display 0 -image_dir /data
 
 ## Troubleshooting
 
-If you experience issues while running the the `make` command, please lower the number of jobs to something that makes sense for your machine. See [discussion here](https://github.com/seancook/docker-openpose-cpu/pull/2).
+If you experience issues while running the the `make` command, please lower the number of jobs to something that makes sense for your machine. See [discussion here](https://github.com/seancook/docker-openpose-cpu/pull/2). Thanks to `jonathanmv` for pointing this out.
